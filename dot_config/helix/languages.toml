@@ -1,0 +1,205 @@
+# --- Helix languages.toml ---
+# NOTE: Only one block per language name. All relevant servers merged.
+
+[[language]]
+name = "html"
+scope = "text.html.basic"
+injection-regex = "html"
+file-types = ["html", "htm", "shtml", "xhtml", "xht", "jsp", "asp", "aspx", "jshtm", "volt", "rhtml", "cshtml"]
+language-servers = ["vscode-html-language-server", "superhtml", "tailwindcss-ls"]
+auto-format = true
+formatter = { command = "prettier", args = ["--stdin-filepath", "%_"] }
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "javascript"
+scope = "source.js"
+injection-regex = "(js|javascript)"
+language-id = "javascript"
+file-types = ["js", "mjs", "cjs", "rules", "es6", "pac", { glob = ".node_repl_history" }, { glob = "jakefile" }]
+shebangs = ["node"]
+roots = [ "package.json", "jsconfig.json" ]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = [ "typescript-language-server", "tailwindcss-ls" ]
+indent = { tab-width = 2, unit = "  " }
+formatter = { command = "prettier", args = ["--parser", "babel", "--stdin-filepath", "%_"] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+scope = "source.ts"
+file-types = ["ts", "mts", "cts"]
+roots = ["package.json", "tsconfig.json", "bun.lockb", ".git"]
+auto-format = true
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
+
+[[language]]
+name = "jsx"
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
+auto-format = true
+formatter = { command = "prettier", args = ["--stdin-filepath", "%_"] }
+
+[[language]]
+name = "tsx"
+scope = "source.tsx"
+file-types = ["tsx"]
+roots = ["package.json", "tsconfig.json", "bun.lockb", ".git"]
+auto-format = true
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
+
+[[language]]
+name = "svelte"
+language-servers = ["svelteserver", "tailwindcss-ls"]
+auto-format = true
+
+[[language]]
+name = "go"
+language-servers = ["gopls"]
+formatter = { command = "gofmt" }
+auto-format = true
+
+[[language]]
+name = "elixir"
+scope = "source.elixir"
+file-types = ["ex", "exs"]
+roots = ["mix.exs"]
+comment-token = "#"
+auto-format = true
+formatter = { command = "mix", args = ["format", "-"] }
+
+[[language]]
+name = "c"
+scope = "source.c"
+file-types = ["c", "h"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = ["clangd"]
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+formatter = { command = "clang-format", args = ["--style=LLVM"] }
+
+[[language]]
+name = "cpp"
+scope = "source.cpp"
+file-types = ["cpp", "cc", "cxx", "hpp", "hh", "hxx"]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = ["clangd"]
+indent = { tab-width = 2, unit = "  " }
+auto-format = true
+formatter = { command = "clang-format", args = ["--style=LLVM"] }
+
+[[language]]
+name = "json"
+auto-format = true
+formatter = { command = "prettier", args = ["--stdin-filepath", "%_"] }
+
+[[language]]
+name = "yaml"
+auto-format = true
+formatter = { command = "prettier", args = ["--stdin-filepath", "%_"] }
+
+[[language]]
+name = "markdown"
+auto-format = true
+formatter = { command = "prettier", args = ["--stdin-filepath", "%_"] }
+
+[[language]]
+name = "css"
+auto-format = true
+formatter = { command = "prettier", args = ["--stdin-filepath", "%_"] }
+
+[[language]]
+name = "scss"
+auto-format = true
+formatter = { command = "prettier", args = ["--stdin-filepath", "%_"] }
+
+[[language]]
+name = "python"
+scope = "source.python"
+injection-regex = "python"
+file-types = ["py", "pyi", "py3", "pyw", "ptl", "rpy", "cpy", "ipy", "pyt", { glob = ".python_history" }, { glob = ".pythonstartup" }, { glob = ".pythonrc" }, { glob = "SConstruct" }, { glob = "SConscript" }]
+shebangs = ["python"]
+roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json", "requirements.txt", ".venv/"]
+comment-token = "#"
+language-servers = [ {name = "pyright", except-features=["diagnostics"]}, "ruff" ]
+indent = { tab-width = 4, unit = "    " }
+auto-format = true
+formatter = { command = "ruff", args = ["format", "-"] }
+
+[[language]]
+name = "racket"
+scope = "source.racket"
+file-types = ["rkt", "rktd", "rktl", "scrbl"]
+shebangs = ["racket"]
+comment-token = ";"
+indent = { tab-width = 2, unit = "  " }
+block-comment-tokens = { start = "#|", end = "|#" }
+language-servers = [ "racket-langserver" ]
+grammar = "scheme"
+formatter = { command = "raco", args = ["fmt"] }
+
+[[language]]
+name = "bash"
+language-servers = ["bash-language-server"]
+formatter = { command = "shfmt", args = ["-"] }
+auto-format = true
+
+[[language]]
+name = "fish"
+language-servers = ["fish-lsp"]
+auto-format = true
+
+[language-server.vscode-html-language-server]
+command = "vscode-html-language-server"
+args = ["--stdio"]
+
+[language-server.typescript-language-server]
+command = "bun"
+args = ["x", "typescript-language-server", "--stdio"]
+
+[language-server.eslint-lsp]
+command = "bun"
+args = ["x", "eslint-lsp", "--stdio"]
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+[language-server.pyright.config]
+python.analysis.venvPath = "."
+python.analysis.venv = ".venv"
+python.analysis.lint = true
+python.analysis.inlayHint.enable = true
+python.analysis.autoSearchPaths = true
+python.analysis.diagnosticMode = "workspace"
+python.analysis.useLibraryCodeForType = true
+python.analysis.logLevel = "Error"
+python.analysis.typeCheckingMode = "off"
+python.analysis.autoImoprtCompletion = true
+python.analysis.reportOptionalSubscript = false
+python.analysis.reportOptionalMemberAccess = false
+
+[language-server.ruff]
+command = "ruff"
+args = ["server", "-q", "--preview"]
+
+[language-server.racket-langserver]
+command = "racket"
+args = ["-l", "racket-langserver"]
+
+[language-server.bash-language-server]
+command = "/home/linuxbrew/.linuxbrew/bin/bash-language-server"
+args = ["start"]
+
+[language-server.fish-lsp]
+command = "/home/linuxbrew/.linuxbrew/bin/fish-lsp"
+args = ["start"]
+
+[language-server.gopls]
+command = "gopls"
+args = ["serve"]
+
+[language-server.tailwindcss-ls]
+command = "/home/linuxbrew/.linuxbrew/bin/tailwindcss-language-server"
+args = ["--stdio"]

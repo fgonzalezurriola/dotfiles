@@ -1,0 +1,63 @@
+# Ghostty Terminal "config" file
+# 
+theme = Monokai Soda
+command = /usr/bin/fish --login --interactive
+
+clipboard-paste-protection = false
+copy-on-select = clipboard
+confirm-close-surface = false
+window-decoration = none
+window-padding-x = 1
+window-padding-y = 1
+background-opacity = 1.0
+unfocused-split-opacity = 0.66
+window-height = 46
+window-width = 191
+
+font-size = 24
+font-family = "JetBrains Mono Regular"
+font-family-bold = "JetBrains Mono Bold"
+font-family-italic = "JetBrains Mono Italic"
+font-family-bold-italic = "JetBrains Mono Bold Italic"
+mouse-scroll-multiplier = 2
+
+keybind = ctrl+shift+d=new_split:right
+keybind = ctrl+shift+u=new_split:down
+# keybind = ctrl+capslock=previous_tab
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+j=goto_split:down
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+l=goto_split:right
+keybind = ctrl+shift+w=close_surface
+
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = true
+clipboard-paste-protection = false
+window-save-state = always
+window-new-tab-position = end
+bold-is-bright = true
+background = #121212
+foreground = #bbbbbb
+selection-background = #b5d5ff
+selection-foreground = #000000
+cursor-color = #bbbbbb
+cursor-text = #ffffff
+cursor-style-blink = true
+palette = 0=#121212
+palette = 1=#fa2573
+palette = 2=#98e123
+palette = 3=#dfd460
+palette = 4=#1080d0
+palette = 5=#8700ff
+palette = 6=#43a8d0
+palette = 7=#bbbbbb
+palette = 8=#555555
+palette = 9=#f6669d
+palette = 10=#b1e05f
+palette = 11=#fff26d
+palette = 12=#00afff
+palette = 13=#af87ff
+palette = 14=#51ceff
+palette = 15=#ffffff
+
