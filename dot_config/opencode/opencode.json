@@ -1,0 +1,87 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "lsp": {
+    "racket-langserver": {
+      "command": ["racket", "--lib", "racket-langserver"],
+      "extensions": [".rkt", ".rktd", ".rktl", ".scrbl"]
+    }
+  },
+  "mcp": {
+    "context7": {
+      "type": "local",
+      "command": [
+        "bunx",
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "enabled": false
+    },
+    "playwright": {
+      "type": "local",
+      "command": [
+        "bunx",
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "enabled": false
+    },
+    "todiagram": {
+      "type": "local",
+      "command": [
+        "bunx",
+        "-y",
+        "@todiagram/todiagram-mcp@latest"
+      ],
+      "enabled": false
+    },
+    "shadcn": {
+      "type": "local",
+      "command": [
+        "bunx",
+        "-y",
+        "shadcn@latest",
+        "mcp"
+      ],
+      "enabled": false
+    },
+    "Framelink Figma MCP": {
+      "type": "local",
+      "command": [
+        "bunx",
+        "-y",
+        "figma-developer-mcp",
+        "--figma-api-key=${FIGMA_API_KEY}",
+        "--stdio"
+      ],
+      "enabled": false
+    },
+    "minecraft": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "github:yuniko-software/minecraft-mcp-server",
+        "--host",
+        "statute-manicure.na.e4mc.link",
+        "--port",
+        "25565",
+        "--username",
+        "OpenCodeBot"
+      ],
+      "enabled": false
+    },
+    "exa": {
+      "type": "remote",
+      "url": "https://mcp.exa.ai/mcp?exaApiKey=${EXA_API_KEY}",
+      "enabled": true
+    },
+    "mgrep": {
+      "type": "local",
+      "command": [
+        "mgrep",
+        "mcp"
+      ],
+      "enabled": false
+    }
+  }
+}

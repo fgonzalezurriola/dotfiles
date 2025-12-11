@@ -1,2 +1,4 @@
 .config/opencode/.env
 chezmoi.toml
+.config/opencode/node_modules
+.config/opencode/opencode-backup.tar.gz
