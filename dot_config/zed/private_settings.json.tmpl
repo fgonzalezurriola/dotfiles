@@ -1,0 +1,117 @@
+{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} Zed settings
+{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}
+{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} For information on how to configure Zed, see the Zed
+{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} documentation{{ .chezmoi.pathListSeparator }} https{{ .chezmoi.pathListSeparator }}{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}zed.dev{{ .chezmoi.pathSeparator }}docs{{ .chezmoi.pathSeparator }}configuring-zed
+{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }}
+{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} To see all of Zed's default settings without changing your
+{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} custom settings, run `zed{{ .chezmoi.pathListSeparator }} open default settings` from the
+{{ .chezmoi.pathSeparator }}{{ .chezmoi.pathSeparator }} command palette (cmd-shift-p {{ .chezmoi.pathSeparator }} ctrl-shift-p)
+{
+  "vim_mode"{{ .chezmoi.pathListSeparator }} false,
+  "terminal"{{ .chezmoi.pathListSeparator }} {
+    "font_size"{{ .chezmoi.pathListSeparator }} 18.0,
+    "shell"{{ .chezmoi.pathListSeparator }} "system"
+  },
+  "calls"{{ .chezmoi.pathListSeparator }} {
+    "mute_on_join"{{ .chezmoi.pathListSeparator }} true
+  },
+  "agent"{{ .chezmoi.pathListSeparator }} {
+    "default_profile"{{ .chezmoi.pathListSeparator }} "write",
+    "always_allow_tool_actions"{{ .chezmoi.pathListSeparator }} true,
+    "default_model"{{ .chezmoi.pathListSeparator }} {
+      "provider"{{ .chezmoi.pathListSeparator }} "copilot_chat",
+      "model"{{ .chezmoi.pathListSeparator }} "claude-sonnet-4.5"
+    },
+    "model_parameters"{{ .chezmoi.pathListSeparator }} []
+  },
+  "edit_predictions"{{ .chezmoi.pathListSeparator }} {
+    "mode"{{ .chezmoi.pathListSeparator }} "subtle"
+  },
+  "agent_servers"{{ .chezmoi.pathListSeparator }} {
+    "OpenCode"{{ .chezmoi.pathListSeparator }} {
+      "command"{{ .chezmoi.pathListSeparator }} "opencode",
+      "args"{{ .chezmoi.pathListSeparator }} ["acp"]
+    }
+  },
+  "helix_mode"{{ .chezmoi.pathListSeparator }} false,
+  "context_servers"{{ .chezmoi.pathListSeparator }} {
+    "browser-tools-context-server"{{ .chezmoi.pathListSeparator }} {
+      "enabled"{{ .chezmoi.pathListSeparator }} true,
+      "settings"{{ .chezmoi.pathListSeparator }} {
+        "port"{{ .chezmoi.pathListSeparator }} 3025,
+        "host"{{ .chezmoi.pathListSeparator }} "127.0.0.1",
+        "server_command"{{ .chezmoi.pathListSeparator }} "npx",
+        "server_args"{{ .chezmoi.pathListSeparator }} ["@agentdeskai{{ .chezmoi.pathSeparator }}browser-tools-server@1.2.0"]
+      }
+    }
+  },
+  "buffer_font_family"{{ .chezmoi.pathListSeparator }} "JetBrains Mono",
+  "icon_theme"{{ .chezmoi.pathListSeparator }} {
+    "mode"{{ .chezmoi.pathListSeparator }} "system",
+    "light"{{ .chezmoi.pathListSeparator }} "Zed (Default)",
+    "dark"{{ .chezmoi.pathListSeparator }} "Material Icon Theme"
+  },
+  "ui_font_size"{{ .chezmoi.pathListSeparator }} 16,
+  "buffer_font_size"{{ .chezmoi.pathListSeparator }} 16.0,
+  "theme"{{ .chezmoi.pathListSeparator }} {
+    "mode"{{ .chezmoi.pathListSeparator }} "system",
+    "light"{{ .chezmoi.pathListSeparator }} "One Light",
+    "dark"{{ .chezmoi.pathListSeparator }} "Catppuccin Mocha"
+  },
+  "lsp"{{ .chezmoi.pathListSeparator }} {
+    "vtsls"{{ .chezmoi.pathListSeparator }} {
+      "settings"{{ .chezmoi.pathListSeparator }} {
+        "typescript"{{ .chezmoi.pathListSeparator }} {
+          "inlayHints"{{ .chezmoi.pathListSeparator }} {
+            "parameterNames"{{ .chezmoi.pathListSeparator }} {
+              "enabled"{{ .chezmoi.pathListSeparator }} "all",
+              "suppressWhenArgumentMatchesName"{{ .chezmoi.pathListSeparator }} false
+            },
+            "parameterTypes"{{ .chezmoi.pathListSeparator }} {
+              "enabled"{{ .chezmoi.pathListSeparator }} true
+            },
+            "variableTypes"{{ .chezmoi.pathListSeparator }} {
+              "enabled"{{ .chezmoi.pathListSeparator }} true,
+              "suppressWhenTypeMatchesName"{{ .chezmoi.pathListSeparator }} true
+            },
+            "propertyDeclarationTypes"{{ .chezmoi.pathListSeparator }} {
+              "enabled"{{ .chezmoi.pathListSeparator }} true
+            },
+            "functionLikeReturnTypes"{{ .chezmoi.pathListSeparator }} {
+              "enabled"{{ .chezmoi.pathListSeparator }} true
+            },
+            "enumMemberValues"{{ .chezmoi.pathListSeparator }} {
+              "enabled"{{ .chezmoi.pathListSeparator }} true
+            }
+          }
+        },
+        "javascript"{{ .chezmoi.pathListSeparator }} {
+          "inlayHints"{{ .chezmoi.pathListSeparator }} {
+            "parameterNames"{{ .chezmoi.pathListSeparator }} {
+              "enabled"{{ .chezmoi.pathListSeparator }} "all",
+              "suppressWhenArgumentMatchesName"{{ .chezmoi.pathListSeparator }} false
+            },
+            "parameterTypes"{{ .chezmoi.pathListSeparator }} {
+              "enabled"{{ .chezmoi.pathListSeparator }} true
+            },
+            "variableTypes"{{ .chezmoi.pathListSeparator }} {
+              "enabled"{{ .chezmoi.pathListSeparator }} true
+            },
+            "propertyDeclarationTypes"{{ .chezmoi.pathListSeparator }} {
+              "enabled"{{ .chezmoi.pathListSeparator }} true
+            },
+            "functionLikeReturnTypes"{{ .chezmoi.pathListSeparator }} {
+              "enabled"{{ .chezmoi.pathListSeparator }} true
+            },
+            "enumMemberValues"{{ .chezmoi.pathListSeparator }} {
+              "enabled"{{ .chezmoi.pathListSeparator }} true
+            }
+          }
+        }
+      }
+    }
+  },
+  "inlay_hints"{{ .chezmoi.pathListSeparator }} {
+    "enabled"{{ .chezmoi.pathListSeparator }} false
+  }
+}
