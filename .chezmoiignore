@@ -1,1 +1,2 @@
-.config/opencode/opencode.json
+.config/opencode/.env
+chezmoi.toml
